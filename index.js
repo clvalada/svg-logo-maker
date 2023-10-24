@@ -1,20 +1,25 @@
-//Packages needed for this application
+// Packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const path = require('path');
+const { generateSVG } = require('./svgGenerator'); // You need to create the SVG generator function
 
 // Function to initialize app
 // Array of questions for user input
-function generatersvg(){
+function generatesvg(){
 inquirer
   .prompt([
     {
       type: 'input',
       message: 'Enter up to three characters to be used in the logo',
       name: 'initials',
+      validate: function (input) {
+        return input.length <= 3;
+      }
     },
     {
       type: 'input',
-      message: 'Please enter a text color.',
+      message: 'Please enter a text color (color name or hexadecimal.)',
       name: 'initialsColor',
     },
     {
@@ -25,21 +30,24 @@ inquirer
     },
     {
         type: 'input',
-        message: 'Please enter a shape color.',
+        message: 'Please enter a shape color (color name or hexadecimal.)',
         name: 'shapeColor',
       },
   ])
-// Function to write SVG file  
+// Function to create SVG file  
   .then((response) => {
-      const svgTemplate = `
-      `;
+    const svgTemplate = generateSVG(response);
+
+    const fileName = 'logo.svg';
+    const filePath = path.join(__dirname, fileName);
+
 
 // user feedback
         fs.writeFile('logo.svg', svgTemplateTemplate, (err) => {
             if (err) {
               console.error('Error generating SVG file:', err);
             } else {
-              console.log('SVG file generated successfully!');
+              console.log('Generated logo.svg successfully!');
             }
           });
         });
@@ -47,4 +55,4 @@ inquirer
 
 
 // Function call to initialize app
-generatersvg();
+generatesvg();
