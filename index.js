@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
-const { generateSVG } = require('./svgGenerator'); // You need to create the SVG generator function
+const { generateSVG } = require('./svgGenerator');
 
 // Function to initialize app
 // Array of questions for user input
@@ -43,7 +43,7 @@ inquirer
 
 
 // user feedback
-        fs.writeFile('logo.svg', svgTemplateTemplate, (err) => {
+        fs.writeFile('logo.svg', svgTemplate, (err) => {
             if (err) {
               console.error('Error generating SVG file:', err);
             } else {
