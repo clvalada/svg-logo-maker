@@ -23,7 +23,9 @@ First, ensure that you have installed and enabled Node.js If you are unsure, see
 
 Usage is easy. Just answer the prompts in the command line and SVG Logo Maker will create a logo for you.
 
-Video of the app in action: XYZ
+Video of the app in action: https://drive.google.com/file/d/1FmdKR76JS0H15QQOV37DoLhj3cGr6yBT/view
+
+
 
 ## License
 

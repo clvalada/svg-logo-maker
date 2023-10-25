@@ -23,7 +23,7 @@ function generateSVG(userInput) {
     }
   
     // Combine text and shape elements into the SVG content
-    svgContent += textElement + shapeElement;
+    svgContent += shapeElement + textElement;
   
     // Close the SVG element
     svgContent += '</svg>';
